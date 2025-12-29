@@ -13,63 +13,63 @@ const products = [
     name: "Body Wash",
     description: "Hydrating & smoothing for all skin types",
     price: 35000,
-    image: "/images/body-20wash.jpeg",
+    image: "/images/la-purrona/body-wash.jpeg",
   },
   {
     id: 2,
     name: "Scrub Cream",
     description: "Gentle exfoliation for smooth skin",
     price: 25000,
-    image: "/images/scrub-20cream.jpeg",
+    image: "/images/la-purrona/scrub-cream.jpeg",
   },
   {
     id: 3,
     name: "Retinol Serum",
     description: "Anti-aging & skin renewal",
     price: 35000,
-    image: "/images/retinal-20serum.jpeg",
+    image: "/images/la-purrona/retinol-serum.jpeg",
   },
   {
     id: 4,
-    name: "Body Cream",
+    name: "Body Cream (5 Variants)",
     description: "Intense hydrating & brightening",
     price: 35000,
-    image: "/images/body-20cream.jpeg",
+    image: "/images/la-purrona/body-cream.jpeg",
   },
   {
     id: 5,
     name: "Body Therapy Oil",
     description: "Rich in fatty acids & vitamins",
     price: 40000,
-    image: "/images/body-20therapy.jpeg",
+    image: "/images/la-purrona/body-therapy.jpeg",
   },
   {
     id: 6,
     name: "Vitamin C Serum",
     description: "Brightens, whitens & softens skin",
     price: 35000,
-    image: "/images/vitamin-20c-20serum.jpeg",
+    image: "/images/la-purrona/vitamin-c-serum.jpeg",
   },
   {
     id: 7,
     name: "Hand Cream",
     description: "Moisturizing with long lasting fragrance",
     price: 15000,
-    image: "/images/hand-20cream-20.jpeg",
+    image: "/images/la-purrona/hand-cream.jpeg",
   },
   {
     id: 8,
-    name: "Hair Remover Kit",
+    name: "Hair Remover + Soothing Gel",
     description: "Gentle formula with soothing gel",
     price: 35000,
-    image: "/images/hair-20remover.jpeg",
+    image: "/images/la-purrona/hair-remover.jpeg",
   },
   {
     id: 9,
     name: "Niacinamide Serum",
     description: "Pore minimizing & brightening",
     price: 35000,
-    image: "/images/niancianamade-20serum.jpeg",
+    image: "/images/la-purrona/niacinamide-serum.jpeg",
   },
   {
     id: 10,
@@ -249,7 +249,7 @@ export default function BuyLaPurronaPage() {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px]">
         <Image
-          src="/images/la-20purrona-20hero-20image.jpeg"
+          src="/images/la-purrona/hero.jpeg"
           alt="La Purrona - Where Beauty Begins"
           fill
           className="object-cover"
