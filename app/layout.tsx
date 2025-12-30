@@ -4,6 +4,7 @@ import { Cormorant_Garamond, Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { LanguageProvider } from "@/context/language-context"
+import { ScrollToTop } from "@/components/scroll-to-top"
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -28,7 +29,12 @@ export const metadata: Metadata = {
     description: "Your Beauty, Our Commitment. Premium skincare products with worldwide delivery.",
     type: "website",
   },
-    generator: 'v0.app'
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  generator: "v0.app",
 }
 
 export const viewport: Viewport = {
@@ -45,7 +51,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${cormorant.variable} ${montserrat.variable} font-sans antialiased`}>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <ScrollToTop />
+          {children}
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

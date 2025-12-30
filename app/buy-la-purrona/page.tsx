@@ -1,11 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { WhatsAppButton } from "@/components/whatsapp-button"
-import { ImageIcon } from "lucide-react"
+import { CartSidebar } from "@/components/cart-sidebar"
+import { AddToCartToast } from "@/components/add-to-cart-toast"
+import { CartProvider, useCart } from "@/context/cart-context"
+import { ImageIcon, ArrowRight } from "lucide-react"
 
 const products = [
   {
@@ -196,10 +199,13 @@ function formatPrice(price: number) {
   return `TSh ${price.toLocaleString()}`
 }
 
-function ProductCard({ product }: { product: (typeof products)[0] }) {
-  const whatsappMessage = `Hi! I want to order ${product.name} - ${formatPrice(product.price)}`
-  const whatsappUrl = `https://wa.me/255766847448?text=${encodeURIComponent(whatsappMessage)}`
-
+function ProductCard({
+  product,
+  onAddToCart,
+}: {
+  product: (typeof products)[0]
+  onAddToCart: (product: (typeof products)[0]) => void
+}) {
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
       {/* Image Container */}
@@ -228,20 +234,33 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
         <p className="text-xl font-bold text-[#c49589] mt-auto mb-3">{formatPrice(product.price)}</p>
 
         {/* Buy Button */}
-        <Link
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => onAddToCart(product)}
           className="w-full bg-[#c49589] hover:bg-[#b38579] text-white font-semibold py-3 px-4 rounded-xl text-center transition-colors duration-200"
         >
           BUY NOW
-        </Link>
+        </button>
       </div>
     </div>
   )
 }
 
-export default function BuyLaPurronaPage() {
+function BuyLaPurronaContent() {
+  const { addItem } = useCart()
+  const [showToast, setShowToast] = useState(false)
+  const [toastProductName, setToastProductName] = useState("")
+
+  const handleAddToCart = (product: (typeof products)[0]) => {
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    })
+    setToastProductName(product.name)
+    setShowToast(true)
+  }
+
   return (
     <main className="min-h-screen bg-[#fffaf8]">
       <Navbar />
@@ -258,10 +277,10 @@ export default function BuyLaPurronaPage() {
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <Image
-            src="/images/purrona-20logs.png"
+            src="/images/la-purrona/logo.png"
             alt="La Purrona Logo"
-            width={150}
-            height={100}
+            width={180}
+            height={120}
             className="mb-6 brightness-0 invert"
           />
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Where Beauty Begins</h1>
@@ -286,14 +305,44 @@ export default function BuyLaPurronaPage() {
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} />
             ))}
           </div>
         </div>
       </section>
 
+      {/* CTA Section */}
+      <section className="py-20 px-4 bg-[#c49589]">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Have Questions?</h2>
+          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            We are here to help you find the perfect skincare products for your needs. Reach out to us today!
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center bg-white hover:bg-gray-100 text-[#c49589] font-bold py-4 px-10 rounded-full text-lg transition-colors duration-200"
+          >
+            Contact Us
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+
       <Footer />
-      <WhatsAppButton />
+
+      {/* Cart Sidebar instead of WhatsApp Button */}
+      <CartSidebar />
+
+      {/* Toast notification */}
+      <AddToCartToast show={showToast} productName={toastProductName} onClose={() => setShowToast(false)} />
     </main>
+  )
+}
+
+export default function BuyLaPurronaPage() {
+  return (
+    <CartProvider>
+      <BuyLaPurronaContent />
+    </CartProvider>
   )
 }

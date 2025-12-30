@@ -9,30 +9,44 @@ import { useLanguage } from "@/context/language-context"
 const products = [
   {
     id: 1,
-    image: "/images/product-1.jpeg",
-    nameKey: "products.facialSerum",
-    price: "TZS 45,000",
+    image: "/images/la-purrona/body-wash.jpeg",
+    name: "Body Wash",
+    price: "TSh 35,000",
     category: "La Purrona",
   },
   {
     id: 2,
-    image: "/images/product-2.jpeg",
-    nameKey: "products.clayMask",
-    price: "TZS 35,000",
+    image: "/images/la-purrona/scrub-cream.jpeg",
+    name: "Scrub Cream",
+    price: "TSh 25,000",
     category: "La Purrona",
   },
   {
     id: 3,
-    image: "/images/product-3.jpeg",
-    nameKey: "products.cleanser",
-    price: "TZS 28,000",
+    image: "/images/la-purrona/retinol-serum.jpeg",
+    name: "Retinol Serum",
+    price: "TSh 35,000",
     category: "La Purrona",
   },
   {
     id: 4,
-    image: "/images/product-4.jpeg",
-    nameKey: "products.bodyCream",
-    price: "TZS 32,000",
+    image: "/images/la-purrona/body-cream.jpeg",
+    name: "Body Cream",
+    price: "TSh 35,000",
+    category: "La Purrona",
+  },
+  {
+    id: 5,
+    image: "/images/la-purrona/vitamin-c-serum.jpeg",
+    name: "Vitamin C Serum",
+    price: "TSh 35,000",
+    category: "La Purrona",
+  },
+  {
+    id: 6,
+    image: "/images/la-purrona/hand-cream.jpeg",
+    name: "Hand Cream",
+    price: "TSh 15,000",
     category: "La Purrona",
   },
 ]
@@ -58,8 +72,7 @@ export function ProductsSection() {
           </p>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {products.map((product, index) => (
             <div
               key={product.id}
@@ -70,7 +83,7 @@ export function ProductsSection() {
               <div className="relative aspect-[3/4] overflow-hidden">
                 <Image
                   src={product.image || "/placeholder.svg"}
-                  alt={t(product.nameKey)}
+                  alt={product.name}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -82,7 +95,7 @@ export function ProductsSection() {
                     asChild
                     className="w-full bg-card/95 backdrop-blur-sm text-foreground hover:bg-primary hover:text-primary-foreground font-[family-name:var(--font-montserrat)] text-xs tracking-wide uppercase"
                   >
-                    <Link href="https://wa.me/255764939382" target="_blank" rel="noopener noreferrer">
+                    <Link href="/buy-la-purrona">
                       <ShoppingBag className="mr-2 w-4 h-4" />
                       {t("nav.buyNow")}
                     </Link>
@@ -96,7 +109,7 @@ export function ProductsSection() {
                   {product.category}
                 </span>
                 <h3 className="text-lg font-serif mt-1 mb-2 group-hover:text-primary transition-colors">
-                  {t(product.nameKey)}
+                  {product.name}
                 </h3>
                 <span className="text-foreground/80 font-[family-name:var(--font-montserrat)] font-medium">
                   {product.price}
@@ -106,7 +119,7 @@ export function ProductsSection() {
           ))}
         </div>
 
-        {/* View All Button */}
+        {/* View All Button - links to /buy-la-purrona */}
         <div className="text-center mt-12">
           <Button
             asChild
@@ -114,7 +127,7 @@ export function ProductsSection() {
             size="lg"
             className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-[family-name:var(--font-montserrat)] text-sm tracking-wide uppercase px-10 py-6 rounded-none group bg-transparent"
           >
-            <Link href="https://wa.me/255764939382" target="_blank" rel="noopener noreferrer">
+            <Link href="/buy-la-purrona">
               {t("products.viewAll")}
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
