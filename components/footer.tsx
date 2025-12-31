@@ -11,7 +11,7 @@ export function Footer() {
   const quickLinks = [
     { href: "/", label: t("nav.home") },
     { href: "/about", label: t("nav.about") },
-    { href: "/la-purrona", label: t("nav.lapurrona") },
+    { href: "/buy-la-purrona", label: t("nav.lapurrona") },
     { href: "/blog", label: t("nav.blog") },
     { href: "/contact", label: t("nav.contact") },
   ]
@@ -139,9 +139,6 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/60 font-[family-name:var(--font-montserrat)] text-sm">
               © {new Date().getFullYear()} Dimples Cosmetics. {t("footer.rights")}
-            </p>
-            <p className="text-background/60 font-[family-name:var(--font-montserrat)] text-sm">
-              Made with love in Tanzania
             </p>
           </div>
         </div>
