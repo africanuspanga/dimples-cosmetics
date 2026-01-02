@@ -56,9 +56,9 @@ const products = [
   {
     id: 7,
     name: "Potato Cleanser",
-    description: "Natural brightening cleanser",
+    description: "Advanced gentle foaming facial cleaning",
     price: 35000,
-    image: "/images/la-purrona/potato-cleanser.jpeg", // added image
+    image: "/images/la-purrona/potato-deep-cleanser.jpeg",
   },
   {
     id: 8,
@@ -168,9 +168,9 @@ const products = [
   {
     id: 23,
     name: "Glycolic Toner",
-    description: "Instantly brightens & soothes skin",
+    description: "Instantly brightens & soothes thirsty skin",
     price: 40000,
-    image: "/images/la-purrona/glycolic-toner.jpeg",
+    image: "/images/la-purrona/glycolic-acid-toner.jpeg",
   },
   {
     id: 24,
