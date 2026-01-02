@@ -70,16 +70,16 @@ const products = [
   {
     id: 9,
     name: "Small Body Cream",
-    description: "Intense hydrating & brightening",
+    description: "Intense hydrating & brightening - 300g",
     price: 35000,
-    image: "/images/la-purrona/body-cream.jpeg",
+    image: "/images/la-purrona/small-body-cream.jpeg",
   },
   {
     id: 10,
     name: "Large Body Cream",
-    description: "Intense hydrating & brightening (Large)",
+    description: "Intense hydrating & brightening - 500g",
     price: 50000,
-    image: "/images/la-purrona/body-cream.jpeg",
+    image: "/images/la-purrona/large-body-cream.jpeg",
   },
   {
     id: 11,
@@ -107,7 +107,7 @@ const products = [
     name: "Whitening Face Cream",
     description: "Brightens & evens skin tone",
     price: 45000,
-    image: "/images/la-purrona/whitening-face-cream.jpeg", // added image
+    image: "/images/la-purrona/whitening-face-cream.jpeg",
   },
   {
     id: 15,
@@ -163,7 +163,7 @@ const products = [
     name: "Salicylic Soap",
     description: "Acne fighting cleanser",
     price: 25000,
-    image: null,
+    image: "/images/la-purrona/salicylic-soap.jpeg",
   },
   {
     id: 23,
@@ -182,9 +182,9 @@ const products = [
   {
     id: 25,
     name: "Sunscreen Protection",
-    description: "Ultimate UV protection SPF50",
+    description: "SPF 50+ PA++++ High UV Protection",
     price: 35000,
-    image: null,
+    image: "/images/la-purrona/sunscreen-protection.jpeg",
   },
 ]
 

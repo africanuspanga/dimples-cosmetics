@@ -30,7 +30,7 @@ const products = [
   },
   {
     id: 4,
-    image: "/images/la-purrona/body-cream.jpeg",
+    image: "/images/la-purrona/small-body-cream.jpeg",
     name: "Body Cream",
     price: "TSh 35,000",
     category: "La Purrona",
