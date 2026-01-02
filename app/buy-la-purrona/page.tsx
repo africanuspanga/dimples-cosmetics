@@ -147,9 +147,9 @@ const products = [
   {
     id: 20,
     name: "Strawberry Soap",
-    description: "Refreshing fruity cleanser",
+    description: "Cleansing, exfoliating & brightening",
     price: 20000,
-    image: null,
+    image: "/images/la-purrona/strawberry-soap.jpeg",
   },
   {
     id: 21,
