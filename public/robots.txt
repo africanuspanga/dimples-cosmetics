@@ -1,0 +1,14 @@
+# robots.txt for Dimples Cosmetics - https://www.dimplescosmetics.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.dimplescosmetics.com/sitemap.xml
+
+# Crawl-delay (optional, helps with server load)
+Crawl-delay: 1
+
+# Block admin or private areas if any exist
+# Disallow: /admin/
+# Disallow: /private/
