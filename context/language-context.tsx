@@ -79,6 +79,20 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.emailPlaceholder": "Enter your email",
     "footer.subscribe": "Subscribe",
 
+    // Stats
+    "stats.yearsInBusiness": "Years in Business",
+    "stats.happyClients": "Happy Clients",
+    "stats.products": "Products",
+
+    // Awards
+    "awards.subtitle": "Recognition",
+    "awards.title": "Our Awards & Achievements",
+    "awards.description": "Recognized for excellence in beauty and skincare across East Africa",
+    "awards.bestBrand": "Best Cosmetics Brand of the Year 2025",
+    "awards.fastestGrowing": "East Africa's Fastest Growing Cosmetics Brand 2025",
+    "awards.youngCEO": "Young CEO of the Year - HILDA NNKO",
+    "awards.consumerChoice": "Consumer Choice Top Cosmetics Brand 2025",
+
     // Contact Page
     "contact.title": "Get In Touch",
     "contact.subtitle": "We'd love to hear from you",
@@ -161,6 +175,20 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.newsletter": "Jiandikishe kwa Jarida",
     "footer.emailPlaceholder": "Weka barua pepe yako",
     "footer.subscribe": "Jiandikishe",
+
+    // Stats
+    "stats.yearsInBusiness": "Miaka katika Biashara",
+    "stats.happyClients": "Wateja Wenye Furaha",
+    "stats.products": "Bidhaa",
+
+    // Awards
+    "awards.subtitle": "Utambulisho",
+    "awards.title": "Tuzo na Mafanikio Yetu",
+    "awards.description": "Imetambuliwa kwa ubora katika urembo na utunzaji wa ngozi Afrika Mashariki",
+    "awards.bestBrand": "Chapa Bora ya Vipodozi ya Mwaka 2025",
+    "awards.fastestGrowing": "Chapa ya Vipodozi Inayokua Haraka Afrika Mashariki 2025",
+    "awards.youngCEO": "Mkurugenzi Mtendaji Mchanga wa Mwaka - HILDA NNKO",
+    "awards.consumerChoice": "Chaguo la Wateja Chapa Bora ya Vipodozi 2025",
 
     // Contact Page
     "contact.title": "Wasiliana Nasi",
