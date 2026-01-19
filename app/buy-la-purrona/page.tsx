@@ -186,6 +186,27 @@ const products = [
     price: 35000,
     image: "/images/la-purrona/sunscreen-protection.jpeg",
   },
+  {
+    id: 26,
+    name: "Elora Advanced Beauty Cream",
+    description: "Luxurious purple jar for radiant skin",
+    price: 40000,
+    image: "/images/other-brands/elora-cream.jpeg",
+  },
+  {
+    id: 27,
+    name: "Score Touch Face Cream",
+    description: "Keep calm bring beauty - 50g",
+    price: 50000,
+    image: "/images/other-brands/score-touch-cream.jpeg",
+  },
+  {
+    id: 28,
+    name: "White Infinite Face Cream",
+    description: "Brightening face cream - 50g",
+    price: 40000,
+    image: "/images/other-brands/white-infinite-cream.jpeg",
+  },
 ]
 
 function formatPrice(price: number) {
