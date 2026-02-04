@@ -35,6 +35,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: t("nav.home") },
     { href: "/about", label: t("nav.about") },
+    { href: "/quiz", label: language === "sw" ? "Quiz" : "Quiz" },
     { href: "/buy-la-purrona", label: t("nav.lapurrona") },
     { href: "/blog", label: t("nav.blog") },
     { href: "/contact", label: t("nav.contact") },
