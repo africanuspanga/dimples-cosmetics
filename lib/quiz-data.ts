@@ -345,7 +345,7 @@ export const quizQuestions = {
       options: [
         { value: "brightening", label: "Kung'arisha ngozi" },
         { value: "acne", label: "Kuondoa chunusi" },
-        { value: "antiaging", label: "Kupinga umri" },
+        { value: "antiaging", label: "Kuonekana mdogo zaidi" },
         { value: "hydration", label: "Kulainisha ngozi" },
         { value: "tone", label: "Kusawazisha rangi ya ngozi" },
       ],
@@ -359,7 +359,6 @@ export const quizQuestions = {
         { value: "breakouts", label: "Chunusi na vipele" },
         { value: "darkspots", label: "Madoa meusi" },
         { value: "dull", label: "Ngozi haing'ari" },
-        { value: "sensitive", label: "Ngozi nyeti" },
       ],
     },
     {
@@ -455,7 +454,7 @@ export const resultMessages = {
     checkout: "Proceed to Checkout",
   },
   sw: {
-    title: "Mapendekezo Yako",
+    title: "Bidhaa Zinazokufaa!",
     subtitle: "Kulingana na majibu yako, hizi ni bidhaa tunazokupendekeza",
     addToCart: "Weka Kwenye Kikapu",
     buyNow: "NUNUA SASA",
