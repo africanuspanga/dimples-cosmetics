@@ -64,19 +64,19 @@ function ProgressBar({ current, total }: { current: number; total: number }) {
   const progress = ((current + 1) / total) * 100
 
   return (
-    <div className="w-full max-w-md mx-auto mb-8">
-      <div className="flex justify-between text-sm text-muted-foreground mb-2">
+    <div className="w-full max-w-md mx-auto mb-6 sm:mb-8">
+      <div className="flex justify-between text-xs sm:text-sm text-muted-foreground mb-2">
         <span>
           {current + 1} / {total}
         </span>
         <span>{Math.round(progress)}%</span>
       </div>
-      <div className="h-2 bg-muted rounded-full overflow-hidden">
+      <div className="h-1.5 sm:h-2 bg-muted rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
           initial={{ width: 0 }}
           animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         />
       </div>
     </div>
@@ -99,37 +99,37 @@ function QuizOption({
     <motion.button
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.1 }}
+      transition={{ duration: 0.3, delay: index * 0.08 }}
       onClick={onClick}
       className={`
-        relative w-full p-5 rounded-2xl text-left transition-all duration-300
-        border-2 group
+        relative w-full p-4 sm:p-5 rounded-xl sm:rounded-2xl text-left transition-all duration-300
+        border-2 group active:scale-[0.98]
         ${
           isSelected
             ? "bg-primary/10 border-primary shadow-lg shadow-primary/20"
-            : "bg-card border-border hover:border-primary/50 hover:shadow-md"
+            : "bg-card border-border hover:border-primary/50 active:border-primary/50"
         }
       `}
     >
-      <div className="flex items-center gap-4">
-        {option.icon && <span className="text-3xl">{option.icon}</span>}
+      <div className="flex items-center gap-3 sm:gap-4">
+        {option.icon && <span className="text-2xl sm:text-3xl">{option.icon}</span>}
         <span
           className={`
-          text-lg font-medium transition-colors
-          ${isSelected ? "text-primary" : "text-foreground group-hover:text-primary"}
+          text-base sm:text-lg font-medium transition-colors flex-1
+          ${isSelected ? "text-primary" : "text-foreground"}
         `}
         >
           {option.label}
         </span>
         <div
           className={`
-          ml-auto w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all
+          flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 flex items-center justify-center transition-all
           ${isSelected ? "bg-primary border-primary" : "border-muted-foreground/30"}
         `}
         >
           {isSelected && (
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 500 }}>
-              <Check className="w-4 h-4 text-primary-foreground" />
+              <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary-foreground" />
             </motion.div>
           )}
         </div>
@@ -158,12 +158,12 @@ function ProductCard({
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group"
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="relative bg-card rounded-xl sm:rounded-2xl overflow-hidden shadow-lg flex flex-col group"
     >
       {/* Match indicator */}
       {product.score >= 30 && (
-        <div className="absolute top-3 left-3 z-10 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1">
+        <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 bg-primary text-primary-foreground text-xs font-bold px-2 py-1 sm:px-3 rounded-full flex items-center gap-1">
           <Sparkles className="w-3 h-3" />
           {language === "sw" ? "Inakufaa!" : "Great Match!"}
         </div>
@@ -176,32 +176,31 @@ function ProductCard({
             src={product.image}
             alt={name}
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
+            className="object-cover"
             sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <ImageIcon className="w-16 h-16 text-muted-foreground/40" />
+            <ImageIcon className="w-12 h-12 sm:w-16 sm:h-16 text-muted-foreground/40" />
           </div>
         )}
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-semibold text-foreground text-lg">{name}</h3>
-        <p className="text-muted-foreground text-sm mt-1 mb-4">{description}</p>
+      <div className="p-4 sm:p-5 flex flex-col flex-1">
+        <h3 className="font-semibold text-foreground text-base sm:text-lg leading-tight">{name}</h3>
+        <p className="text-muted-foreground text-sm mt-1 mb-3 sm:mb-4 line-clamp-2">{description}</p>
 
         {/* Price */}
-        <p className="text-xl font-bold text-primary mt-auto mb-4">{formatPrice(product.price)}</p>
+        <p className="text-lg sm:text-xl font-bold text-primary mt-auto mb-3 sm:mb-4">{formatPrice(product.price)}</p>
 
         {/* Buy Button */}
         <motion.button
-          whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={onAddToCart}
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3.5 px-4 rounded-xl text-center transition-colors duration-200 flex items-center justify-center gap-2"
+          className="w-full bg-primary active:bg-primary/90 text-primary-foreground font-semibold py-3 sm:py-3.5 px-4 rounded-xl text-center transition-colors duration-200 flex items-center justify-center gap-2"
         >
-          <ShoppingBag className="w-5 h-5" />
+          <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
           {messages.buyNow}
         </motion.button>
       </div>
@@ -298,15 +297,15 @@ function QuizContent() {
       </header>
 
       {/* Main Content */}
-      <div className="pt-24 pb-12 px-4">
+      <div className="pt-20 sm:pt-24 pb-8 sm:pb-12 px-4">
         <AnimatePresence mode="wait">
           {!showResults ? (
             <motion.div
               key={`question-${currentStep}`}
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.25 }}
               className="max-w-xl mx-auto"
             >
               {/* Progress */}
@@ -314,19 +313,19 @@ function QuizContent() {
 
               {/* Question */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="text-center mb-10"
+                transition={{ duration: 0.3 }}
+                className="text-center mb-6 sm:mb-10"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-                  <Sparkles className="w-8 h-8 text-primary" />
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 mb-4 sm:mb-6">
+                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-foreground text-balance">
+                <h1 className="text-xl sm:text-3xl font-bold text-foreground text-balance px-2">
                   {currentQuestion.question}
                 </h1>
                 {currentStep === 0 && (
-                  <p className="text-muted-foreground mt-3">
+                  <p className="text-muted-foreground mt-2 sm:mt-3 text-sm sm:text-base">
                     {language === "sw"
                       ? "Tukusaidie kupata bidhaa zinazokufaa"
                       : "Let us help you find your perfect skincare routine"}
@@ -335,7 +334,7 @@ function QuizContent() {
               </motion.div>
 
               {/* Options */}
-              <div className="space-y-3">
+              <div className="space-y-2.5 sm:space-y-3">
                 {currentQuestion.options.map((option, index) => (
                   <QuizOption
                     key={option.value}
@@ -352,8 +351,8 @@ function QuizContent() {
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-center text-sm text-muted-foreground mt-8"
+                  transition={{ delay: 0.4 }}
+                  className="text-center text-xs sm:text-sm text-muted-foreground mt-6 sm:mt-8"
                 >
                   {language === "sw"
                     ? "Maswali 8 tu - Dakika 2"
@@ -366,39 +365,39 @@ function QuizContent() {
               key="results"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
               className="max-w-5xl mx-auto"
             >
               {/* Results Header */}
-              <div className="text-center mb-12">
+              <div className="text-center mb-8 sm:mb-12">
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                  className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6"
+                  className="inline-flex items-center justify-center w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-primary/10 mb-4 sm:mb-6"
                 >
-                  <Sparkles className="w-10 h-10 text-primary" />
+                  <Sparkles className="w-7 h-7 sm:w-10 sm:h-10 text-primary" />
                 </motion.div>
                 <motion.h1
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-3xl sm:text-4xl font-bold text-foreground mb-3"
+                  className="text-2xl sm:text-4xl font-bold text-foreground mb-2 sm:mb-3"
                 >
                   {messages.title}
                 </motion.h1>
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-muted-foreground text-lg max-w-xl mx-auto"
+                  className="text-muted-foreground text-sm sm:text-lg max-w-xl mx-auto px-4"
                 >
                   {messages.subtitle}
                 </motion.p>
               </div>
 
               {/* Product Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-8 sm:mb-12">
                 {recommendations.map((product, index) => (
                   <ProductCard
                     key={product.id}
@@ -412,21 +411,21 @@ function QuizContent() {
 
               {/* Action Buttons */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                transition={{ delay: 0.6 }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4"
               >
                 <button
                   onClick={handleRetake}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-border hover:border-primary/50 text-foreground font-medium transition-colors"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded-xl border-2 border-border active:border-primary/50 text-foreground font-medium transition-colors"
                 >
                   <RotateCcw className="w-5 h-5" />
                   {messages.retake}
                 </button>
                 <Link
                   href="/buy-la-purrona"
-                  className="flex items-center gap-2 px-8 py-3 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-semibold transition-colors"
+                  className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-primary active:bg-primary/90 text-primary-foreground font-semibold transition-colors"
                 >
                   {messages.viewAll}
                   <ArrowRight className="w-5 h-5" />
