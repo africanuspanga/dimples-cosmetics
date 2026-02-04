@@ -279,9 +279,8 @@ function QuizContent() {
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/images/logo.png" alt="Dimples Cosmetics" width={40} height={40} className="rounded-full" />
-            <span className="font-semibold text-foreground hidden sm:block">Dimples Cosmetics</span>
+          <Link href="/" className="flex items-center">
+            <Image src="/images/logo.png" alt="Dimples Cosmetics" width={120} height={40} className="h-10 sm:h-12 w-auto" />
           </Link>
 
           {!showResults && currentStep > 0 && (
