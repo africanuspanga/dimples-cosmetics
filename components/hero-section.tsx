@@ -53,7 +53,7 @@ export function HeroSection() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-[family-name:var(--font-montserrat)] text-sm tracking-wide uppercase px-8 py-6 rounded-none group"
             >
-              <Link href="/la-purrona">
+              <Link href="/buy-la-purrona">
                 {t("hero.shopNow")}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
