@@ -215,6 +215,25 @@ export default function ContactPage() {
                   ))}
                 </div>
               </div>
+
+              {/* Careers */}
+              <div className="bg-card p-8 rounded-2xl shadow-lg border border-border/50">
+                <h3 className="text-xl font-serif mb-4">{language === "en" ? "Careers" : "Ajira"}</h3>
+                <p className="text-sm text-foreground/60 font-[family-name:var(--font-montserrat)] leading-relaxed">
+                  {language === "en" ? "All official " : "Nafasi zote rasmi za "}
+                  <a
+                    href="https://www.cvchapchap.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    {language === "en" ? "job vacancies" : "kazi"}
+                  </a>
+                  {language === "en"
+                    ? " at Dimples Cosmetics, for our shops and team, are announced only on this website."
+                    : " Dimples Cosmetics, kwa maduka na timu yetu, zinatangazwa kwenye tovuti hii pekee."}
+                </p>
+              </div>
             </div>
           </div>
         </div>
